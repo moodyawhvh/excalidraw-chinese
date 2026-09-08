@@ -1,35 +1,37 @@
-# Installation
+> 🌐 本文档由 [excalidraw/excalidraw](https://github.com/excalidraw/excalidraw) 翻译,英文原版见原项目。
 
-**Excalidraw** is exported as a component to be directly embedded in your project.
+# 安装
 
-Use `npm` or `yarn` to install the package.
+**Excalidraw** 以组件形式导出,可直接嵌入你的项目中。
+
+使用 `npm` 或 `yarn` 安装该包。
 
 ```bash
 npm install react react-dom @excalidraw/excalidraw
-# or
+# 或
 yarn add react react-dom @excalidraw/excalidraw
 ```
 
 :::tip
 
-**If you don't want to wait for the next stable release and try out the unreleased changes you can use `@excalidraw/excalidraw@next`.**
+**如果不想等下一个稳定版本、想提前体验未发布的改动,可以使用 `@excalidraw/excalidraw@next`。**
 
 :::
 
-### Self-hosting fonts
+### 自托管字体
 
-By default, Excalidraw will try to download all the used fonts from the [CDN](https://esm.run/@excalidraw/excalidraw/dist/prod).
+默认情况下,Excalidraw 会尝试从 [CDN](https://esm.run/@excalidraw/excalidraw/dist/prod) 下载所有用到的字体。
 
-For self-hosting purposes, you'll have to copy the content of the folder `node_modules/@excalidraw/excalidraw/dist/prod/fonts` to the path where your assets should be served from (i.e. `public/` directory in your project). In that case, you should also set `window.EXCALIDRAW_ASSET_PATH` to the very same path, i.e. `/` in case it's in the root:
+如果需要自托管,你必须把 `node_modules/@excalidraw/excalidraw/dist/prod/fonts` 文件夹里的内容复制到你存放静态资源的路径下(比如项目中的 `public/` 目录)。此时你还应把 `window.EXCALIDRAW_ASSET_PATH` 设置为同一个路径,例如资源在根目录时就设为 `/`:
 
 ```js
 window.EXCALIDRAW_ASSET_PATH = "/";
 ```
 
-or, if you serve your assets from the root of your CDN, you would do:
+或者,如果你的静态资源托管在 CDN 根路径下,可以这样写:
 
 ```js
-// Vanilla
+// 原生 HTML
 <head>
     <script>
         window.EXCALIDRAW_ASSET_PATH = "https://my.cdn.com/assets/";
@@ -37,19 +39,19 @@ or, if you serve your assets from the root of your CDN, you would do:
 </head>
 ```
 
-or, if you prefer the path to be dynamicly set based on the `location.origin`, you could do the following:
+或者,如果你希望路径基于 `location.origin` 动态设置,可以这样做:
 
 ```jsx
 // Next.js
 <Script id="load-env-variables" strategy="beforeInteractive" >
-    { `window["EXCALIDRAW_ASSET_PATH"] = location.origin;` } // or use just "/"!
+    { `window["EXCALIDRAW_ASSET_PATH"] = location.origin;` } // 也可以直接用 "/"!
 </Script>
 ```
 
-### Dimensions of Excalidraw
+### Excalidraw 的尺寸
 
-Excalidraw takes _100%_ of `width` and `height` of the containing block so make sure the container in which you render Excalidraw has non zero dimensions.
+Excalidraw 会占满其容器的 _100%_ `width` 和 `height`,所以请确保渲染 Excalidraw 的容器尺寸不为零。
 
-## Demo
+## 演示
 
-Go to [CodeSandbox](https://codesandbox.io/p/sandbox/github/excalidraw/excalidraw/tree/master/examples/with-script-in-browser) example.
+前往 [CodeSandbox](https://codesandbox.io/p/sandbox/github/excalidraw/excalidraw/tree/master/examples/with-script-in-browser) 查看示例。
