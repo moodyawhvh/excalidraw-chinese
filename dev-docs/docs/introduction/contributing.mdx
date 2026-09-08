@@ -1,21 +1,22 @@
-# Contributing
+> 🌐 本文档由 [excalidraw/excalidraw](https://github.com/excalidraw/excalidraw) 翻译,英文原版见原项目。
 
-Pull requests are welcome. For major changes, please [open an issue](https://github.com/excalidraw/excalidraw/issues/new) first to discuss what you would like to change.
+# 贡献指南
 
-We have a [roadmap](https://github.com/orgs/excalidraw/projects/3) which we strongly recommend to go through and check if something interests you.
-For new contributors we would recommend to start with *Easy* tasks.
+欢迎提交 Pull Request。如果是较大的改动,请先[开一个 issue](https://github.com/excalidraw/excalidraw/issues/new),讨论一下你想改什么。
 
-In case you want to pick up something from the roadmap, comment on that issue and one of the project maintainers will assign it to you, post which you can discuss in the issue and start working on it.
+我们有一份[路线图(roadmap)](https://github.com/orgs/excalidraw/projects/3),强烈建议先过一遍,看看有没有你感兴趣的任务。新贡献者建议从 *Easy* 级别的任务入手。
 
-## Setup
+如果你想认领路线图上的某个任务,在对应 issue 下留言即可,项目维护者会把它分配给你,之后你就可以在 issue 里讨论并开工了。
 
-### Option 1 - Manual
+## 环境准备
 
-1. Fork and clone the repo
-1. Run `yarn` to install dependencies
-1. Create a branch for your PR with `git checkout -b your-branch-name`
+### 方式一 — 手动配置
 
-> To keep `master` branch pointing to remote repository and make pull requests from branches on your fork, run:
+1. Fork 并克隆本仓库
+1. 运行 `yarn` 安装依赖
+1. 用 `git checkout -b your-branch-name` 为你的 PR 创建分支
+
+> 想让 `master` 分支始终对齐上游仓库、并从你 fork 上的分支发起 PR,请执行:
 >
 > ```bash
 > git remote add upstream https://github.com/excalidraw/excalidraw.git
@@ -23,50 +24,50 @@ In case you want to pick up something from the roadmap, comment on that issue an
 > git branch --set-upstream-to=upstream/master master
 > ```
 
-### Option 2 - CodeSandbox
+### 方式二 — CodeSandbox
 
-1. Go to https://codesandbox.io/p/github/excalidraw/excalidraw
-1. Connect your GitHub account
-1. Go to Git tab on left side
-1. Tap on `Fork Sandbox`
-1. Write your code
-1. Commit and PR automatically
+1. 打开 https://codesandbox.io/p/github/excalidraw/excalidraw
+1. 关联你的 GitHub 账号
+1. 进入左侧的 Git 标签页
+1. 点击 `Fork Sandbox`
+1. 写你的代码
+1. 提交并自动发起 PR
 
-## Pull Request Guidelines
+## Pull Request 规范
 
-Don't worry if you get any of the below wrong, or if you don't know how. We'll gladly help out.
+就算下面哪条没做好、或者不会做,也别慌,我们很乐意帮忙。
 
-### Title
+### 标题
 
-Make sure the title starts with a semantic prefix:
+标题必须以语义化前缀开头:
 
-- **feat**: A new feature
-- **fix**: A bug fix
-- **docs**: Documentation only changes
-- **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-- **refactor**: A code change that neither fixes a bug nor adds a feature
-- **perf**: A code change that improves performance
-- **test**: Adding missing tests or correcting existing tests
-- **build**: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
-- **ci**: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
-- **chore**: Other changes that don't modify src or test files
-- **revert**: Reverts a previous commit
+- **feat**:新功能
+- **fix**:修复 bug
+- **docs**:仅文档改动
+- **style**:不影响代码含义的改动(空格、格式化、补分号等)
+- **refactor**:既不修 bug 也不加功能的代码重构
+- **perf**:提升性能的代码改动
+- **test**:补充缺失的测试或修正现有测试
+- **build**:影响构建系统或外部依赖的改动(示例 scope:gulp、broccoli、npm)
+- **ci**:改动 CI 配置文件和脚本(示例 scope:Travis、Circle、BrowserStack、SauceLabs)
+- **chore**:其他不涉及 src 或测试文件的改动
+- **revert**:回滚之前的提交
 
-### Testing
+### 测试
 
-Once you submit your pull request it will automatically be tested. Be sure to check the results of the test and fix any issues that arise.
+Pull Request 提交后会自动跑测试。请务必查看测试结果并修掉暴露的问题。
 
-It's also a good idea to consider if your change should include additional tests. This is highly recommended for new features or bug-fixes. For example, it's good practice to create a test for each bug you fix which ensures that we don't regress the code in the future.
+同时建议评估一下这次改动是否需要补充测试。对新功能和 bug 修复来说非常推荐这么做。比如,每修一个 bug 就为它写一个测试,可以有效防止代码将来回退。
 
-Finally - always manually test your changes using the convenient staging environment deployed for each pull request. As much as local development attempts to replicate production, there can still be subtle differences in behavior. For larger features consider testing your change in multiple browsers as well.
+最后——每个 pull request 都会部署一个随时可用的预演(staging)环境,请务必在上面手动验证你的改动。本地开发环境再怎么贴近生产环境,行为上仍可能存在细微差异。较大的功能建议在多个浏览器里都测一遍。
 
 :::note
-Some checks, such as the `lint` and `test`, require approval from the maintainers to run. 
-They will appear as `Expected — Waiting for status to be reported` in the PR checks when they are waiting for approval.
+部分检查项(例如 `lint` 和 `test`)需要维护者批准后才会运行。
+等待批准时,它们会在 PR 检查中显示为 `Expected — Waiting for status to be reported`。
 :::
 
-## Translating
+## 翻译
 
-To translate Excalidraw into other languages, please visit [our Crowdin page](https://crowdin.com/project/excalidraw). To add a new language, [open an issue](https://github.com/excalidraw/excalidraw/issues/new) so we can get things set up on our end first.
+要把 Excalidraw 翻译成其他语言,请访问[我们的 Crowdin 页面](https://crowdin.com/project/excalidraw)。如果想新增一门语言,请先[开一个 issue](https://github.com/excalidraw/excalidraw/issues/new),我们会在平台侧先做好配置。
 
-Translations will be available on the app if they exceed a certain threshold of completion (currently **85%**).
+翻译完成度超过一定阈值(目前为 **85%**)后,就会在应用中上线。

@@ -1,78 +1,80 @@
-# Development
+> 🌐 本文档由 [excalidraw/excalidraw](https://github.com/excalidraw/excalidraw) 翻译,英文原版见原项目。
 
-## Code Sandbox
+# 开发
 
-- Go to https://codesandbox.io/p/github/excalidraw/excalidraw
-  - You may need to sign in with GitHub and reload the page
-- You can start coding instantly, and even send PRs from there!
+## 在线沙箱(Code Sandbox)
 
-## Local Installation
+- 打开 https://codesandbox.io/p/github/excalidraw/excalidraw
+  - 可能需要先用 GitHub 登录并刷新页面
+- 可以直接开始写代码,甚至能从那里直接发 PR!
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+## 本地安装
 
-### Requirements
+按照以下步骤,你就能在本地把项目跑起来,用于开发和测试。
+
+### 环境要求
 
 - [Node.js](https://nodejs.org/en/)
-- [Yarn](https://yarnpkg.com/getting-started/install) (v1 or v2.4.2+)
+- [Yarn](https://yarnpkg.com/getting-started/install)(v1 或 v2.4.2+)
 - [Git](https://git-scm.com/downloads)
 
-### Clone the repo
+### 克隆仓库
 
 ```bash
 git clone https://github.com/excalidraw/excalidraw.git
 ```
 
-### Install the dependencies
+### 安装依赖
 
 ```bash
 yarn
 ```
 
-### Start the server
+### 启动服务
 
 ```bash
 yarn start
 ```
 
-Now you can open [http://localhost:3000](http://localhost:3000) and start coding in your favorite code editor.
+现在打开 [http://localhost:3000](http://localhost:3000),用你顺手的编辑器开写即可。
 
-## Collaboration
+## 协作功能
 
-For collaboration, you will need to set up [collab server](https://github.com/excalidraw/excalidraw-room) in local.
+如果要在本地体验协作功能,你还需要在本地部署 [collab server](https://github.com/excalidraw/excalidraw-room)。
 
-## Commands
+## 常用命令
 
-### Install the dependencies
+### 安装依赖
 
 ```bash
 yarn
 ```
 
-### Run the project
+### 运行项目
 
 ```bash
 yarn start
 ```
 
-### Reformat all files with Prettier
+### 用 Prettier 统一格式化所有文件
 
 ```bash
 yarn fix
 ```
 
-### Run tests
+### 运行测试
 
 ```bash
 yarn test
 ```
 
-### Update test snapshots
+### 更新测试快照
 
 ```bash
 yarn test:update
 ```
 
-### Test for formatting with Prettier
+### 用 Prettier 检查代码格式
 
 ```bash
 yarn test:code
@@ -80,23 +82,23 @@ yarn test:code
 
 ### Docker Compose
 
-You can use docker-compose to work on Excalidraw locally if you don't want to setup a Node.js env.
+如果不想折腾 Node.js 环境,可以用 docker-compose 在本地跑 Excalidraw。
 
 ```bash
 docker-compose up --build -d
 ```
 
-## Self-hosting
+## 自托管
 
-We publish a Docker image with the Excalidraw client at [excalidraw/excalidraw](https://hub.docker.com/r/excalidraw/excalidraw). You can use it to self-host your own client under your own domain, on Kubernetes, AWS ECS, etc.
+我们在 [excalidraw/excalidraw](https://hub.docker.com/r/excalidraw/excalidraw) 发布了包含 Excalidraw 客户端的 Docker 镜像。你可以用它在自己的域名下自托管客户端,部署到 Kubernetes、AWS ECS 等平台也没问题。
 
 ```bash
 docker build -t excalidraw/excalidraw .
 docker run --rm -dit --name excalidraw -p 5000:80 excalidraw/excalidraw:latest
 ```
 
-The Docker image is free of analytics and other tracking libraries.
+该 Docker 镜像不含任何统计埋点和追踪类库。
 
-**At the moment, self-hosting your own instance doesn't support sharing or collaboration features.**
+**目前自托管实例不支持分享和协作功能。**
 
-We are working towards providing a full-fledged solution for self-hosting your own Excalidraw.
+我们正在努力提供一套完整的自托管方案。
