@@ -1,22 +1,24 @@
-# Installation
+> 🌐 本文档由 [excalidraw/excalidraw](https://github.com/excalidraw/excalidraw) 翻译,英文原版见原项目。
 
-`@excalidraw/mermaid-to-excalidraw` is published to npm. This library is used in [excalidraw](https://excalidraw.com) to transform mermaid syntax to Excalidraw diagrams.
+# 安装
 
-Using `npm`
+`@excalidraw/mermaid-to-excalidraw` 已发布到 npm。[excalidraw](https://excalidraw.com) 内部就用这个库把 mermaid 语法转换成 Excalidraw 图形。
+
+使用 `npm`
 
 ```bash
 npm install @excalidraw/mermaid-to-excalidraw
 ```
 
-Using `yarn`
+使用 `yarn`
 
 ```bash
 yarn add @excalidraw/mermaid-to-excalidraw
 ```
 
-## Usage
+## 用法
 
-Once the library is installed, its ready to use.
+库安装完成后即可直接使用。
 
 ```js
 import { parseMermaidToExcalidraw } from "@excalidraw/mermaid-to-excalidraw";
@@ -26,17 +28,16 @@ try {
   const { elements, files } = await parseMermaid(diagramDefinition, {
     fontSize: DEFAULT_FONT_SIZE,
   });
-  // currently the elements returned from the parser are in a "skeleton" format
-  // which we need to convert to fully qualified excalidraw elements first
+  // 目前解析器返回的元素是"skeleton(骨架)"格式,
+  // 需要先转换成完整的 excalidraw 元素
   const excalidrawElements = convertToExcalidrawElements(elements);
 
-  // Render elements and files on Excalidraw
+  // 在 Excalidraw 中渲染 elements 和 files
 } catch (e) {
-  // Error handling
+  // 错误处理
 }
 ```
 
-## Playground
+## 在线演练场
 
- Try it out [here](https://mermaid-to-excalidraw.vercel.app)
-
+[点这里](https://mermaid-to-excalidraw.vercel.app)试用。

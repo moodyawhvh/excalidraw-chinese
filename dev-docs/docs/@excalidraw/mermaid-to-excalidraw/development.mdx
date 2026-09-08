@@ -1,60 +1,62 @@
-# Development
+> 🌐 本文档由 [excalidraw/excalidraw](https://github.com/excalidraw/excalidraw) 翻译,英文原版见原项目。
 
-This page relates to developing the `@excalidraw/mermaid-to-excalidraw` package itself.
+# 开发
 
-## Setting up in Local
+本页内容与 `@excalidraw/mermaid-to-excalidraw` 包本身的开发相关。
 
-To set up the library in local, follow the below steps 👇🏼
+## 本地环境搭建
 
-### Clone the Repository
+按下面的步骤在本地搭好这个库 👇🏼
 
-Go to [@excalidraw/mermaid-to-excalidraw](https://github.com/excalidraw/mermaid-to-excalidraw) and clone the repository to your local.
+### 克隆仓库
+
+前往 [@excalidraw/mermaid-to-excalidraw](https://github.com/excalidraw/mermaid-to-excalidraw),把仓库克隆到本地。
 
 
 ```bash
 git clone git@github.com:excalidraw/mermaid-to-excalidraw.git
 ```
 
-### Install the dependencies
+### 安装依赖
 
-Using `npm`
+使用 `npm`
 
 ```bash
 npm install @excalidraw/mermaid-to-excalidraw
 ```
 
-Using `yarn`
+使用 `yarn`
 
 ```bash
 yarn add @excalidraw/mermaid-to-excalidraw
 ```
 
-### Run the playground server
+### 启动演练场(playground)服务
 
 ```bash
 yarn start
 ```
 
-This will start the playground server in port `1234` and you start playing with the playground.
+该命令会在 `1234` 端口启动演练场服务,然后你就可以在 playground 里随便玩了。
 
-## Creating a test release
+## 创建测试版本
 
-We will soon simplify creating release via commenting on GitHub PR similar till then you can create a release by following the below steps
+我们很快会支持直接在 GitHub PR 下评论来创建 release;在此之前,请按下面的步骤手动创建:
 
-1. Create the build
+1. 构建产物
 
 ```bash
 yarn build
 ```
 
-This will create the dist folder which we need to publish next.
+该命令会生成 dist 文件夹,接下来要发布的就是它。
 
-2. Publish the library
+2. 发布库
 
-Update the package name and version in [package.json](https://github.com/excalidraw/mermaid-to-excalidraw/blob/master/package.json) and run the below command to publish it
+更新 [package.json](https://github.com/excalidraw/mermaid-to-excalidraw/blob/master/package.json) 中的包名和版本号,然后运行以下命令发布
 
 ```bash
 yarn publish
 ```
 
-And thats all your test release is successfully created 🎉
+至此,你的测试版本就发布成功了 🎉

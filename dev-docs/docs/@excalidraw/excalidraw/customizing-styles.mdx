@@ -1,8 +1,10 @@
-# Customizing Styles
+> 🌐 本文档由 [excalidraw/excalidraw](https://github.com/excalidraw/excalidraw) 翻译,英文原版见原项目。
 
-Excalidraw uses CSS variables to style certain components. To override them, you should set your own on the `.excalidraw` and `.excalidraw.theme--dark` (for dark mode variables) selectors.
+# 自定义样式
 
-Make sure the selector has higher specificity, e.g. by prefixing it with your app's selector:
+Excalidraw 使用 CSS 变量为部分组件设置样式。想覆盖这些变量,你需要在 `.excalidraw` 和 `.excalidraw.theme--dark`(深色模式变量)选择器上设置自己的值。
+
+注意保证选择器优先级足够高,比如在前面加上你应用自身的选择器:
 
 ```css
 .your-app .excalidraw {
@@ -13,15 +15,15 @@ Make sure the selector has higher specificity, e.g. by prefixing it with your ap
 }
 ```
 
-Most notably, you can customize the primary colors, by overriding these variables:
+最常用的场景是自定义主色,覆盖下面这些变量即可:
 
 - `--color-primary`
 - `--color-primary-darker`
 - `--color-primary-darkest`
 - `--color-primary-light`
-- `--color-primary-contrast-offset` — a slightly darker (in light mode), or lighter (in dark mode) `--color-primary` color to fix contrast issues (see [Chubb illusion](https://en.wikipedia.org/wiki/Chubb_illusion)). It will fall back to `--color-primary` if not present.
+- `--color-primary-contrast-offset` — 比特 `--color-primary` 略深(浅色模式下)或略浅(深色模式下)的颜色,用于修复对比度问题(参见 [Chubb 错觉](https://en.wikipedia.org/wiki/Chubb_illusion))。未设置时会回退到 `--color-primary`。
 
-For a complete list of variables, check [theme.scss](https://github.com/excalidraw/excalidraw/blob/master/packages/excalidraw/css/theme.scss), though most of them will not make sense to override.
+完整变量列表见 [theme.scss](https://github.com/excalidraw/excalidraw/blob/master/packages/excalidraw/css/theme.scss),不过其中大部分变量没有覆盖的必要。
 
 ```css showLineNumbers
 .custom-styles .excalidraw {
