@@ -27,7 +27,7 @@ import type { AppState, BinaryFiles } from "@excalidraw/excalidraw/types";
 export { MIME_TYPES };
 
 type ExportOpts = {
-  /** restored before exporting */
+  /** 导出前先做还原(restored)处理 */
   elements: readonly NonDeletedExcalidrawElement[];
   appState?: Partial<Omit<AppState, "offsetTop" | "offsetLeft">>;
   files: BinaryFiles | null;
@@ -75,7 +75,7 @@ export const exportToCanvas = ({
 
         const max = Math.max(width, height);
 
-        // if content is less then maxWidthOrHeight, fallback on supplied scale
+        // 内容未超过 maxWidthOrHeight 时,回退使用调用方传入的缩放比例
         const scale =
           maxWidthOrHeight < max
             ? maxWidthOrHeight / max
@@ -116,7 +116,7 @@ export const exportToBlob = async (
     console.warn(`"quality" will be ignored for "${MIME_TYPES.png}" mimeType`);
   }
 
-  // typo in MIME type (should be "jpeg")
+  // MIME 类型拼写错误(标准写法应为 "jpeg")
   if (mimeType === "image/jpg") {
     mimeType = MIME_TYPES.jpg;
   }
@@ -149,9 +149,8 @@ export const exportToBlob = async (
           blob = await encodePngMetadata({
             blob,
             metadata: serializeAsJSON(
-              // NOTE as long as we're using the Scene hack, we need to ensure
-              // we pass the original, uncloned elements when serializing
-              // so that we keep ids stable (restoring keeps the ids)
+              // 注意:只要我们还在用 Scene 这个 hack,序列化时就必须传原始的、
+              // 未克隆的元素,以保证 id 稳定不变(还原时保留原 id)
               restoreElements(opts.elements, null),
               opts.appState,
               opts.files || {},

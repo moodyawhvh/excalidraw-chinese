@@ -87,7 +87,7 @@ export const KEYS = {
 
 export type Key = keyof typeof KEYS;
 
-// defines key code mapping for matching codes as fallback to respective keys on non-latin keyboard layouts
+// 定义 keyCode 映射表:在非拉丁键盘布局上,当 key 匹配失败时回退用 code 匹配对应的按键
 export const KeyCodeMap = new Map<ValueOf<typeof KEYS>, ValueOf<typeof CODES>>([
   [KEYS.Z, CODES.Z],
   [KEYS.Y, CODES.Y],
@@ -96,41 +96,41 @@ export const KeyCodeMap = new Map<ValueOf<typeof KEYS>, ValueOf<typeof CODES>>([
 export const isLatinChar = (key: string) => /^[a-z]$/.test(key.toLowerCase());
 
 /**
- * Used to match key events for any keyboard layout, especially on Windows and Linux,
- * where non-latin character with modified (CMD) is not substituted with latin-based alternative.
+ * 用于匹配任意键盘布局下的按键事件,尤其是 Windows 和 Linux:
+ * 在这些平台上,非拉丁字符加修饰键(CMD)时不会自动替换成对应的拉丁字符。
  *
- * Uses `event.key` when it's latin, otherwise fallbacks to `event.code` (if mapping exists).
+ * 当 `event.key` 是拉丁字符时直接使用它,否则回退到 `event.code`(如果存在映射)。
  *
- * Example of pressing "z" on different layouts, with the chosen key or code highlighted in []:
+ * 例子:在不同布局下按下 "z",方括号 [] 标出最终选用的 key 或 code:
  *
- * Layout                | Code  | Key | Comment
+ * 布局                  | Code  | Key | 说明
  * --------------------- | ----- | --- | -------
- * U.S.                  |  KeyZ  | [z] |
- * Czech                 |  KeyY  | [z] |
- * Turkish               |  KeyN  | [z] |
- * French                |  KeyW  | [z] |
- * Macedonian            | [KeyZ] |  з  | z with cmd; з is Cyrillic equivalent of z
- * Russian               | [KeyZ] |  я  | z with cmd
- * Serbian               | [KeyZ] |  ѕ  | z with cmd
- * Greek                 | [KeyZ] |  ζ  | z with cmd; also ζ is Greek equivalent of z
- * Hebrew                | [KeyZ] |  ז  | z with cmd; also ז is Hebrew equivalent of z
- * Pinyin - Simplified   |  KeyZ  | [z] | due to IME
- * Cangije - Traditional | [KeyZ] |  重 | z with cmd
- * Japanese              | [KeyZ] |  つ | z with cmd
- * 2-Set Korean          | [KeyZ] |  ㅋ | z with cmd
+ * U.S.(美式)           |  KeyZ  | [z] |
+ * Czech(捷克)          |  KeyY  | [z] |
+ * Turkish(土耳其)      |  KeyN  | [z] |
+ * French(法语)         |  KeyW  | [z] |
+ * Macedonian(马其顿)   | [KeyZ] |  з  | z + cmd;з 是西里尔字母中对应 z 的字符
+ * Russian(俄语)        | [KeyZ] |  я  | z + cmd
+ * Serbian(塞尔维亚)    | [KeyZ] |  ѕ  | z + cmd
+ * Greek(希腊)          | [KeyZ] |  ζ  | z + cmd;ζ 是希腊字母中对应 z 的字符
+ * Hebrew(希伯来)       | [KeyZ] |  ז  | z + cmd;ז 是希伯来字母中对应 z 的字符
+ * Pinyin - Simplified(拼音-简体) |  KeyZ  | [z] | 因输入法(IME)介入
+ * Cangjie - Traditional(仓颉-繁体) | [KeyZ] |  重 | z + cmd
+ * Japanese(日语)       | [KeyZ] |  つ | z + cmd
+ * 2-Set Korean(韩语双式)| [KeyZ] |  ㅋ | z + cmd
  *
- * More details in https://github.com/excalidraw/excalidraw/pull/5944
+ * 更多细节见 https://github.com/excalidraw/excalidraw/pull/5944
  */
 export const matchKey = (
   event: KeyboardEvent | React.KeyboardEvent<Element>,
   key: ValueOf<typeof KEYS>,
 ): boolean => {
-  // for latin layouts use key
+  // 拉丁布局直接比较 key
   if (key === event.key.toLowerCase()) {
     return true;
   }
 
-  // non-latin layouts fallback to code
+  // 非拉丁布局回退用 code 匹配
   const code = KeyCodeMap.get(key);
   return Boolean(code && !isLatinChar(event.key) && event.code === code);
 };
